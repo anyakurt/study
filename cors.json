@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["http://localhost:8080", "https://anyakurt.github.io"],
+    "method": ["GET", "HEAD", "PUT", "POST", "DELETE"],
+    "responseHeader": ["Content-Type", "Authorization", "Content-Length", "x-goog-*"],
+    "maxAgeSeconds": 3600
+  }
+]

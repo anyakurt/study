@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.3/src/parser/StudyConfigSchema.json",
+  "studyMetadata": {
+    "title": "A-VLAT Pilot",
+    "version": "1.0.0",
+    "authors": [
+      "Anna Kurtenkova"
+    ],
+    "date": "2026-08-16",
+    "description": "Example study using the adaptive-vlat library.",
+    "organizations": [
+      "University of Vienna"
+    ]
+  },
+  "uiConfig": {
+    "contactEmail": "",
+    "logoPath": "revisitAssets/revisitLogoSquare.svg",
+    "withProgressBar": true,
+    "withSidebar": false
+  },
+  "importedLibraries": [
+    "adaptive-vlat"
+  ],
+  "components": {
+    "introduction": {
+      "type": "markdown",
+      "path": "vl-thesis-avlat/assets/introduction.md",
+      "response": []
+    }
+  },
+  "sequence": {
+    "order": "fixed",
+    "components": [
+      "introduction",
+      "$adaptive-vlat.sequences.adaptive-vlat"
+    ]
+  }
+}

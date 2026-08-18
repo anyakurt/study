@@ -53,7 +53,8 @@
     "test-randomization",
     "test-component-timeout",
     "test-skip-logic",
-    "test-step-logic"
+    "test-step-logic",
+    "vl-thesis-avlat"
   ],
   "configs": {
     "tutorial": {
@@ -241,6 +242,10 @@
     },
     "example-VLAT-adaptive": {
       "path": "example-VLAT-adaptive/config.json",
+      "test": true
+    },
+    "vl-thesis-avlat": {
+      "path": "vl-thesis-avlat/config.json",
       "test": true
     }
   }
