@@ -26,12 +26,81 @@
       "type": "markdown",
       "path": "vl-thesis-avlat/assets/introduction.md",
       "response": []
+    },
+    "selfAssessmentIntro": {
+      "type": "markdown",
+      "path": "vl-thesis-avlat/assets/self-assessment-intro.md",
+      "response": []
+    },
+    "selfAssessment": {
+      "type": "questionnaire",
+      "response": [
+        {
+          "id": "sglBoxplot",
+          "prompt": "How good are you at working with boxplots?",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Not at all good",
+          "rightLabel": "Extremely good"
+        },
+        {
+          "id": "sglViolinPlot",
+          "prompt": "How good are you at working with violin plots?",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Not at all good",
+          "rightLabel": "Extremely good"
+        },
+        {
+          "id": "sglHistogram",
+          "prompt": "How good are you at working with histograms?",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Not at all good",
+          "rightLabel": "Extremely good"
+        },
+        {
+          "id": "sglJitteredStripplot",
+          "prompt": "How good are you at working with jittered stripplots?",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Not at all good",
+          "rightLabel": "Extremely good"
+        },
+        {
+          "id": "sglGraphUsefulness",
+          "prompt": "How often do you find graphical information to be useful?",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Never",
+          "rightLabel": "Very often",
+          "withDivider": true
+        }
+      ]
+    },
+    "avlatIntro": {
+      "type": "markdown",
+      "path": "vl-thesis-avlat/assets/avlat-intro.md",
+      "response": []
     }
   },
   "sequence": {
     "order": "fixed",
     "components": [
       "introduction",
+      "selfAssessmentIntro",
+      "selfAssessment",
+      "avlatIntro",
       "$adaptive-vlat.sequences.adaptive-vlat"
     ]
   }
