@@ -1,5 +1,5 @@
-# Before You Continue
+## Self-Assessment
 
-The next five questions ask about your own sense of your ability and experience.
-There are no right or wrong answers — please answer as accurately as you can for
-yourself.
+Great, you're now at the **second part of the study**. This is a short self-assessment: answer based on how confident you personally feel about each chart type. There are no right or wrong answers here.
+
+This will take about **2 minutes**.
