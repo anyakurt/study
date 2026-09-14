@@ -22,7 +22,7 @@
           "answer": "A"
         }
       ],
-      "provideFeedback": true,
+      "provideFeedback": false,
       "allowFailedTraining": true,
       "trainingAttempts": 1
     }

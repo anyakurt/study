@@ -27,70 +27,913 @@
       "path": "vl-thesis-avlat/assets/introduction.md",
       "response": []
     },
+    "clickTestTrial": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
     "selfAssessmentIntro": {
       "type": "markdown",
       "path": "vl-thesis-avlat/assets/self-assessment-intro.md",
       "response": []
     },
-    "selfAssessment": {
-      "type": "questionnaire",
-      "response": [
-        {
-          "id": "sglBoxplot",
-          "prompt": "How good are you at working with boxplots?",
-          "location": "aboveStimulus",
-          "type": "likert",
-          "numItems": 6,
-          "start": 1,
-          "leftLabel": "Not at all good",
-          "rightLabel": "Extremely good"
-        },
-        {
-          "id": "sglViolinPlot",
-          "prompt": "How good are you at working with violin plots?",
-          "location": "aboveStimulus",
-          "type": "likert",
-          "numItems": 6,
-          "start": 1,
-          "leftLabel": "Not at all good",
-          "rightLabel": "Extremely good"
-        },
-        {
-          "id": "sglHistogram",
-          "prompt": "How good are you at working with histograms?",
-          "location": "aboveStimulus",
-          "type": "likert",
-          "numItems": 6,
-          "start": 1,
-          "leftLabel": "Not at all good",
-          "rightLabel": "Extremely good"
-        },
-        {
-          "id": "sglJitteredStripplot",
-          "prompt": "How good are you at working with jittered stripplots?",
-          "location": "aboveStimulus",
-          "type": "likert",
-          "numItems": 6,
-          "start": 1,
-          "leftLabel": "Not at all good",
-          "rightLabel": "Extremely good"
-        },
-        {
-          "id": "sglGraphUsefulness",
-          "prompt": "How often do you find graphical information to be useful?",
-          "location": "aboveStimulus",
-          "type": "likert",
-          "numItems": 6,
-          "start": 1,
-          "leftLabel": "Never",
-          "rightLabel": "Very often",
-          "withDivider": true
-        }
-      ]
-    },
     "avlatIntro": {
       "type": "markdown",
       "path": "vl-thesis-avlat/assets/avlat-intro.md",
+      "response": []
+    },
+    "task1_D1_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_histogram.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D2_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_stripplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D3_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D4_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_violin.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D2_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_histogram.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D3_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_stripplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D4_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D1_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_violin.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D3_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_histogram.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D4_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_stripplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D1_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D2_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_violin.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D4_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_histogram.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D1_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_stripplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D2_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task1_D3_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelect.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_violin.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120,
+        "allowNoOutliers": true,
+        "maxClicks": 1
+      },
+      "response": []
+    },
+    "task2_D2_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_histogram.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D3_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_stripplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D4_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D1_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_violin.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D3_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_histogram.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D4_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_stripplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D1_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D2_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_violin.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D4_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_histogram.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D1_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_stripplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D2_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D3_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_violin.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D1_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_histogram.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D2_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_stripplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D3_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task2_D4_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickToSelectRange.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_violin.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "plotAreaLeftPx": 353.6,
+        "plotAreaRightPx": 1183.9,
+        "domainMin": 20,
+        "domainMax": 120
+      },
+      "response": []
+    },
+    "task3_D1_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_histogram.png",
+        "splitValue": 77
+      },
+      "response": []
+    },
+    "task3_D1_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_stripplot.png",
+        "splitValue": 77
+      },
+      "response": []
+    },
+    "task3_D1_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_boxplot.png",
+        "splitValue": 77
+      },
+      "response": []
+    },
+    "task3_D1_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_violin.png",
+        "splitValue": 77
+      },
+      "response": []
+    },
+    "task3_D2_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_histogram.png",
+        "splitValue": 84
+      },
+      "response": []
+    },
+    "task3_D2_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_stripplot.png",
+        "splitValue": 84
+      },
+      "response": []
+    },
+    "task3_D2_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_boxplot.png",
+        "splitValue": 84
+      },
+      "response": []
+    },
+    "task3_D2_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D2_violin.png",
+        "splitValue": 84
+      },
+      "response": []
+    },
+    "task3_D3_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_histogram.png",
+        "splitValue": 94
+      },
+      "response": []
+    },
+    "task3_D3_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_stripplot.png",
+        "splitValue": 94
+      },
+      "response": []
+    },
+    "task3_D3_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_boxplot.png",
+        "splitValue": 94
+      },
+      "response": []
+    },
+    "task3_D3_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D3_violin.png",
+        "splitValue": 94
+      },
+      "response": []
+    },
+    "task3_D4_histogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_histogram.png",
+        "splitValue": 56
+      },
+      "response": []
+    },
+    "task3_D4_stripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_stripplot.png",
+        "splitValue": 56
+      },
+      "response": []
+    },
+    "task3_D4_boxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_boxplot.png",
+        "splitValue": 56
+      },
+      "response": []
+    },
+    "task3_D4_violin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/CountComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D4_violin.png",
+        "splitValue": 56
+      },
+      "response": []
+    },
+    "task4_boxplot_panelA": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/panelA_boxplot.png"
+      },
+      "response": []
+    },
+    "task4_violin_panelB": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/panelB_violin.png"
+      },
+      "response": []
+    },
+    "task4_boxplot_panelB": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/panelB_boxplot.png"
+      },
+      "response": []
+    },
+    "task4_violin_panelA": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/panelA_violin.png"
+      },
+      "response": []
+    },
+    "task4_histogram_panelA": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/panelA_histogram.png"
+      },
+      "response": []
+    },
+    "task4_histogram_panelB": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/panelB_histogram.png"
+      },
+      "response": []
+    },
+    "task4_stripplot_panelA": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/panelA_stripplot.png"
+      },
+      "response": []
+    },
+    "task4_stripplot_panelB": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/panelB_stripplot.png"
+      },
+      "response": []
+    },
+    "attentionCheckPostAVLAT": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/AttentionCheckPostAVLAT.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/bubblechart_attentioncheck.png"
+      },
+      "response": []
+    },
+    "attentionCheckTask1": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/AttentionCheckTask1.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/D1_boxplot.png",
+        "imageWidth": 1500,
+        "imageHeight": 1200,
+        "targetXMinPx": 293.6,
+        "targetXMaxPx": 413.6,
+        "targetYMinPx": 1025,
+        "targetYMaxPx": 1195
+      },
+      "response": []
+    },
+    "attentionCheckTask4": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/AttentionCheckTask4.tsx",
+      "parameters": {},
+      "response": []
+    },
+    "selfAssessmentBoxplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/SelfAssessmentItem.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/attentioncheck_task4.png",
+        "promptText": "How good are you at working with boxplots?",
+        "leftLabel": "Not at all good",
+        "rightLabel": "Extremely good",
+        "responseId": "sglBoxplot"
+      },
+      "response": []
+    },
+    "selfAssessmentViolin": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/SelfAssessmentItem.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/example_violin.png",
+        "promptText": "How good are you at working with violin plots?",
+        "leftLabel": "Not at all good",
+        "rightLabel": "Extremely good",
+        "responseId": "sglViolinPlot"
+      },
+      "response": []
+    },
+    "selfAssessmentHistogram": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/SelfAssessmentItem.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/example_histogram.png",
+        "promptText": "How good are you at working with histograms?",
+        "leftLabel": "Not at all good",
+        "rightLabel": "Extremely good",
+        "responseId": "sglHistogram"
+      },
+      "response": []
+    },
+    "selfAssessmentStripplot": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/SelfAssessmentItem.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/example_stripplot.png",
+        "promptText": "How good are you at working with jittered stripplots?",
+        "leftLabel": "Not at all good",
+        "rightLabel": "Extremely good",
+        "responseId": "sglJitteredStripplot"
+      },
+      "response": []
+    },
+    "demographics": {
+      "type": "questionnaire",
+      "response": [
+        {
+          "id": "demoAge",
+          "prompt": "Age in years",
+          "location": "belowStimulus",
+          "type": "dropdown",
+          "options": [
+            "18 to 24",
+            "25 to 34",
+            "35 to 44",
+            "45 to 54",
+            "55 to 64",
+            "65 to 74",
+            "75 or above"
+          ],
+          "placeholder": "Select an option"
+        },
+        {
+          "id": "demoGender",
+          "prompt": "Gender",
+          "location": "belowStimulus",
+          "type": "dropdown",
+          "options": [
+            "Male",
+            "Female",
+            "Non-binary / third gender",
+            "I do not wish to make a specification here"
+          ],
+          "placeholder": "Select an option"
+        },
+        {
+          "id": "demoEducation",
+          "prompt": "Highest education level",
+          "location": "belowStimulus",
+          "type": "dropdown",
+          "options": [
+            "No compulsory education",
+            "Compulsory school certificate",
+            "Apprenticeship or other specialized training",
+            "Upper secondary school certificate",
+            "Bachelor\u2019s degree or equivalent",
+            "Master\u2019s degree or equivalent",
+            "Doctoral (PhD) degree or equivalent",
+            "My degree is not listed"
+          ],
+          "placeholder": "Select an option"
+        }
+      ]
+    },
+    "clickTutorial": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ClickTutorial.tsx",
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/bar_example.png",
+        "imageWidth": 900,
+        "imageHeight": 750,
+        "targetXMinPx": 491.3,
+        "targetXMaxPx": 646.5,
+        "targetYMinPx": 275.4,
+        "targetYMaxPx": 679.9,
+        "targetLabel": "C"
+      },
+      "response": []
+    },
+    "performanceCheckIntro": {
+      "type": "markdown",
+      "path": "vl-thesis-avlat/assets/performance-check-intro.md",
+      "response": []
+    },
+    "qualitativeReflection": {
+      "type": "questionnaire",
+      "response": [
+        {
+          "id": "reflectionRatingAVLAT",
+          "prompt": "Rate from 1 to 10 how well you feel you did on the A-VLAT test.",
+          "location": "belowStimulus",
+          "type": "likert",
+          "numItems": 10,
+          "start": 1,
+          "leftLabel": "Not well at all",
+          "rightLabel": "Very well"
+        },
+        {
+          "id": "reflectionRatingDistributionTasks",
+          "prompt": "Rate from 1 to 10 how well you feel you did on the One-Dimensional Distributions Tasks.",
+          "location": "belowStimulus",
+          "type": "likert",
+          "numItems": 10,
+          "start": 1,
+          "leftLabel": "Not well at all",
+          "rightLabel": "Very well"
+        },
+        {
+          "id": "reflectionReassess",
+          "prompt": "If you were to assess yourself again, would you give yourself:",
+          "location": "belowStimulus",
+          "type": "radio",
+          "options": [
+            "The same assessment",
+            "Better",
+            "Worse"
+          ]
+        },
+        {
+          "id": "reflectionOpenText",
+          "prompt": "How do you feel about the three parts you just finished? You can write any feedback you have here:",
+          "location": "belowStimulus",
+          "type": "longText",
+          "placeholder": "Type your answer here"
+        }
+      ]
+    },
+    "demographicsIntro": {
+      "type": "markdown",
+      "path": "vl-thesis-avlat/assets/demographics-intro.md",
       "response": []
     }
   },
@@ -98,10 +941,197 @@
     "order": "fixed",
     "components": [
       "introduction",
-      "selfAssessmentIntro",
-      "selfAssessment",
       "avlatIntro",
-      "$adaptive-vlat.sequences.adaptive-vlat"
+      "$adaptive-vlat.sequences.adaptive-vlat",
+      "attentionCheckPostAVLAT",
+      "selfAssessmentIntro",
+      "selfAssessmentBoxplot",
+      "selfAssessmentViolin",
+      "selfAssessmentHistogram",
+      "selfAssessmentStripplot",
+      "performanceCheckIntro",
+      "clickTutorial",
+      {
+        "order": "latinSquare",
+        "numSamples": 1,
+        "components": [
+          {
+            "order": "fixed",
+            "components": [
+              {
+                "order": "random",
+                "components": [
+                  "task1_D1_histogram",
+                  "task1_D2_stripplot",
+                  "task1_D3_boxplot",
+                  "task1_D4_violin",
+                  "attentionCheckTask1"
+                ]
+              },
+              {
+                "order": "random",
+                "components": [
+                  "task2_D2_histogram",
+                  "task2_D3_stripplot",
+                  "task2_D4_boxplot",
+                  "task2_D1_violin"
+                ]
+              },
+              {
+                "order": "random",
+                "components": [
+                  "task3_D3_histogram",
+                  "task3_D4_stripplot",
+                  "task3_D1_boxplot",
+                  "task3_D2_violin"
+                ]
+              },
+              {
+                "order": "fixed",
+                "components": [
+                  "task4_boxplot_panelA",
+                  "task4_violin_panelB",
+                  "attentionCheckTask4",
+                  "task4_histogram_panelA",
+                  "task4_stripplot_panelB"
+                ]
+              }
+            ]
+          },
+          {
+            "order": "fixed",
+            "components": [
+              {
+                "order": "random",
+                "components": [
+                  "task1_D2_histogram",
+                  "task1_D3_stripplot",
+                  "task1_D4_boxplot",
+                  "task1_D1_violin",
+                  "attentionCheckTask1"
+                ]
+              },
+              {
+                "order": "random",
+                "components": [
+                  "task2_D3_histogram",
+                  "task2_D4_stripplot",
+                  "task2_D1_boxplot",
+                  "task2_D2_violin"
+                ]
+              },
+              {
+                "order": "random",
+                "components": [
+                  "task3_D4_histogram",
+                  "task3_D1_stripplot",
+                  "task3_D2_boxplot",
+                  "task3_D3_violin"
+                ]
+              },
+              {
+                "order": "fixed",
+                "components": [
+                  "task4_boxplot_panelB",
+                  "task4_violin_panelA",
+                  "attentionCheckTask4",
+                  "task4_histogram_panelB",
+                  "task4_stripplot_panelA"
+                ]
+              }
+            ]
+          },
+          {
+            "order": "fixed",
+            "components": [
+              {
+                "order": "random",
+                "components": [
+                  "task1_D3_histogram",
+                  "task1_D4_stripplot",
+                  "task1_D1_boxplot",
+                  "task1_D2_violin",
+                  "attentionCheckTask1"
+                ]
+              },
+              {
+                "order": "random",
+                "components": [
+                  "task2_D4_histogram",
+                  "task2_D1_stripplot",
+                  "task2_D2_boxplot",
+                  "task2_D3_violin"
+                ]
+              },
+              {
+                "order": "random",
+                "components": [
+                  "task3_D1_histogram",
+                  "task3_D2_stripplot",
+                  "task3_D3_boxplot",
+                  "task3_D4_violin"
+                ]
+              },
+              {
+                "order": "fixed",
+                "components": [
+                  "task4_boxplot_panelA",
+                  "task4_violin_panelB",
+                  "attentionCheckTask4",
+                  "task4_histogram_panelA",
+                  "task4_stripplot_panelB"
+                ]
+              }
+            ]
+          },
+          {
+            "order": "fixed",
+            "components": [
+              {
+                "order": "random",
+                "components": [
+                  "task1_D4_histogram",
+                  "task1_D1_stripplot",
+                  "task1_D2_boxplot",
+                  "task1_D3_violin",
+                  "attentionCheckTask1"
+                ]
+              },
+              {
+                "order": "random",
+                "components": [
+                  "task2_D1_histogram",
+                  "task2_D2_stripplot",
+                  "task2_D3_boxplot",
+                  "task2_D4_violin"
+                ]
+              },
+              {
+                "order": "random",
+                "components": [
+                  "task3_D2_histogram",
+                  "task3_D3_stripplot",
+                  "task3_D4_boxplot",
+                  "task3_D1_violin"
+                ]
+              },
+              {
+                "order": "fixed",
+                "components": [
+                  "task4_boxplot_panelB",
+                  "task4_violin_panelA",
+                  "attentionCheckTask4",
+                  "task4_histogram_panelB",
+                  "task4_stripplot_panelA"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "qualitativeReflection",
+      "demographicsIntro",
+      "demographics"
     ]
   }
 }
