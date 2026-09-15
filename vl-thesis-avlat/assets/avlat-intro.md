@@ -1,6 +1,6 @@
 ## Visualization Literacy Test
 
-This is the **first part of the study**. You'll see a series of charts, each with a short question and a few answer choices — pick the one you think is correct.
+Great, you're now at the **second part of the study**. You'll see a series of charts, each with a short question and a few answer choices — pick the one you think is correct.
 
 This will take about **10 minutes**.
 

@@ -892,18 +892,8 @@
       "type": "questionnaire",
       "response": [
         {
-          "id": "reflectionRatingAVLAT",
-          "prompt": "Rate from 1 to 10 how well you feel you did on the A-VLAT test.",
-          "location": "belowStimulus",
-          "type": "likert",
-          "numItems": 10,
-          "start": 1,
-          "leftLabel": "Not well at all",
-          "rightLabel": "Very well"
-        },
-        {
           "id": "reflectionRatingDistributionTasks",
-          "prompt": "Rate from 1 to 10 how well you feel you did on the One-Dimensional Distributions Tasks.",
+          "prompt": "Rate from 1 to 10 how well you feel you did on the last part of the study you just finished (tasks with one-dimentional distribution charts).",
           "location": "belowStimulus",
           "type": "likert",
           "numItems": 10,
@@ -913,14 +903,24 @@
         },
         {
           "id": "reflectionReassess",
-          "prompt": "If you were to assess yourself again, would you give yourself:",
+          "prompt": "If you were to assess yourself again (questions with the rating from 1 to 6), would you give yourself:",
           "location": "belowStimulus",
           "type": "radio",
           "options": [
-            "The same assessment",
+            "About the same assessment",
             "Better",
             "Worse"
           ]
+        },
+        {
+          "id": "reflectionRatingAVLAT",
+          "prompt": "Rate from 1 to 10 how well you feel you did on the A-VLAT test (the first test with the tasks).",
+          "location": "belowStimulus",
+          "type": "likert",
+          "numItems": 10,
+          "start": 1,
+          "leftLabel": "Not well at all",
+          "rightLabel": "Very well"
         },
         {
           "id": "reflectionOpenText",
@@ -934,6 +934,11 @@
     "demographicsIntro": {
       "type": "markdown",
       "path": "vl-thesis-avlat/assets/demographics-intro.md",
+      "response": []
+    },
+    "definitionsIntro": {
+      "type": "markdown",
+      "path": "vl-thesis-avlat/assets/definitions-intro.md",
       "response": []
     }
   },
@@ -950,6 +955,7 @@
       "selfAssessmentHistogram",
       "selfAssessmentStripplot",
       "performanceCheckIntro",
+      "definitionsIntro",
       "clickTutorial",
       {
         "order": "latinSquare",
