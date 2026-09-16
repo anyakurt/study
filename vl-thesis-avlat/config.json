@@ -65,7 +65,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": null,
+        "debugShowScore": false,
+        "toleranceLow": 0,
+        "toleranceHigh": 0
       },
       "response": []
     },
@@ -81,7 +85,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": null,
+        "debugShowScore": false,
+        "toleranceLow": 0,
+        "toleranceHigh": 0
       },
       "response": []
     },
@@ -97,7 +105,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": 20,
+        "debugShowScore": false,
+        "toleranceLow": 3,
+        "toleranceHigh": 3
       },
       "response": []
     },
@@ -113,7 +125,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": 111,
+        "debugShowScore": false,
+        "toleranceLow": 3,
+        "toleranceHigh": 11.4
       },
       "response": []
     },
@@ -129,7 +145,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": null,
+        "debugShowScore": false,
+        "toleranceLow": 0,
+        "toleranceHigh": 0
       },
       "response": []
     },
@@ -145,7 +165,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": 20,
+        "debugShowScore": false,
+        "toleranceLow": 3,
+        "toleranceHigh": 3
       },
       "response": []
     },
@@ -161,7 +185,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": 111,
+        "debugShowScore": false,
+        "toleranceLow": 3,
+        "toleranceHigh": 3
       },
       "response": []
     },
@@ -177,7 +205,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": null,
+        "debugShowScore": false,
+        "toleranceLow": 0,
+        "toleranceHigh": 0
       },
       "response": []
     },
@@ -193,7 +225,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": 20,
+        "debugShowScore": false,
+        "toleranceLow": 3,
+        "toleranceHigh": 8
       },
       "response": []
     },
@@ -209,7 +245,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": 111,
+        "debugShowScore": false,
+        "toleranceLow": 3,
+        "toleranceHigh": 3
       },
       "response": []
     },
@@ -225,7 +265,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": null,
+        "debugShowScore": false,
+        "toleranceLow": 0,
+        "toleranceHigh": 0
       },
       "response": []
     },
@@ -241,7 +285,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": null,
+        "debugShowScore": false,
+        "toleranceLow": 0,
+        "toleranceHigh": 0
       },
       "response": []
     },
@@ -257,7 +305,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": 111,
+        "debugShowScore": false,
+        "toleranceLow": 4,
+        "toleranceHigh": 7
       },
       "response": []
     },
@@ -273,7 +325,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": null,
+        "debugShowScore": false,
+        "toleranceLow": 0,
+        "toleranceHigh": 0
       },
       "response": []
     },
@@ -289,7 +345,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": null,
+        "debugShowScore": false,
+        "toleranceLow": 0,
+        "toleranceHigh": 0
       },
       "response": []
     },
@@ -305,7 +365,11 @@
         "domainMin": 20,
         "domainMax": 120,
         "allowNoOutliers": true,
-        "maxClicks": 1
+        "maxClicks": 1,
+        "correctValue": 20,
+        "debugShowScore": false,
+        "toleranceLow": 12.6,
+        "toleranceHigh": 3
       },
       "response": []
     },
@@ -319,7 +383,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 27,
+        "correctMinHigh": 38,
+        "correctMaxLow": 112,
+        "correctMaxHigh": 123,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -333,7 +402,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 17,
+        "correctMinHigh": 23,
+        "correctMaxLow": 115,
+        "correctMaxHigh": 121,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -347,7 +421,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 29,
+        "correctMinHigh": 35,
+        "correctMaxLow": 108,
+        "correctMaxHigh": 114,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -361,7 +440,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 20,
+        "correctMinHigh": 35,
+        "correctMaxLow": 100,
+        "correctMaxHigh": 115,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -375,7 +459,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 17,
+        "correctMinHigh": 28,
+        "correctMaxLow": 112,
+        "correctMaxHigh": 123,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -389,7 +478,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 29,
+        "correctMinHigh": 35,
+        "correctMaxLow": 108,
+        "correctMaxHigh": 114,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -403,7 +497,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 29,
+        "correctMinHigh": 35,
+        "correctMaxLow": 100,
+        "correctMaxHigh": 106,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -417,7 +516,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 14.6,
+        "correctMinHigh": 33,
+        "correctMaxLow": 113,
+        "correctMaxHigh": 130.6,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -431,7 +535,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 27,
+        "correctMinHigh": 38,
+        "correctMaxLow": 107,
+        "correctMaxHigh": 118,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -445,7 +554,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 29,
+        "correctMinHigh": 35,
+        "correctMaxLow": 100,
+        "correctMaxHigh": 106,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -459,7 +573,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 27,
+        "correctMinHigh": 33,
+        "correctMaxLow": 112,
+        "correctMaxHigh": 118,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -473,7 +592,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 7.4,
+        "correctMinHigh": 23,
+        "correctMaxLow": 115,
+        "correctMaxHigh": 130.9,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -487,7 +611,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 27,
+        "correctMinHigh": 38,
+        "correctMaxLow": 97,
+        "correctMaxHigh": 108,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -501,7 +630,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 27,
+        "correctMinHigh": 33,
+        "correctMaxLow": 112,
+        "correctMaxHigh": 118,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -515,7 +649,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 17,
+        "correctMinHigh": 23,
+        "correctMaxLow": 115,
+        "correctMaxHigh": 121,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -529,7 +668,12 @@
         "plotAreaLeftPx": 353.6,
         "plotAreaRightPx": 1183.9,
         "domainMin": 20,
-        "domainMax": 120
+        "domainMax": 120,
+        "correctMinLow": 20.5,
+        "correctMinHigh": 35,
+        "correctMaxLow": 108,
+        "correctMaxHigh": 122.4,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -538,7 +682,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D1_histogram.png",
-        "splitValue": 77
+        "splitValue": 77,
+        "correctAnswer": false,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -547,7 +693,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D1_stripplot.png",
-        "splitValue": 77
+        "splitValue": 77,
+        "correctAnswer": false,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -556,7 +704,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D1_boxplot.png",
-        "splitValue": 77
+        "splitValue": 77,
+        "correctAnswer": false,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -565,7 +715,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D1_violin.png",
-        "splitValue": 77
+        "splitValue": 77,
+        "correctAnswer": false,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -574,7 +726,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D2_histogram.png",
-        "splitValue": 84
+        "splitValue": 84,
+        "correctAnswer": true,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -583,7 +737,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D2_stripplot.png",
-        "splitValue": 84
+        "splitValue": 84,
+        "correctAnswer": true,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -592,7 +748,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D2_boxplot.png",
-        "splitValue": 84
+        "splitValue": 84,
+        "correctAnswer": true,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -601,7 +759,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D2_violin.png",
-        "splitValue": 84
+        "splitValue": 84,
+        "correctAnswer": true,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -610,7 +770,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D3_histogram.png",
-        "splitValue": 94
+        "splitValue": 94,
+        "correctAnswer": false,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -619,7 +781,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D3_stripplot.png",
-        "splitValue": 94
+        "splitValue": 94,
+        "correctAnswer": false,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -628,7 +792,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D3_boxplot.png",
-        "splitValue": 94
+        "splitValue": 94,
+        "correctAnswer": false,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -637,7 +803,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D3_violin.png",
-        "splitValue": 94
+        "splitValue": 94,
+        "correctAnswer": false,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -646,7 +814,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D4_histogram.png",
-        "splitValue": 56
+        "splitValue": 56,
+        "correctAnswer": true,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -655,7 +825,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D4_stripplot.png",
-        "splitValue": 56
+        "splitValue": 56,
+        "correctAnswer": true,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -664,7 +836,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D4_boxplot.png",
-        "splitValue": 56
+        "splitValue": 56,
+        "correctAnswer": true,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -673,7 +847,9 @@
       "path": "vl-thesis-avlat/assets/CountComparison.tsx",
       "parameters": {
         "imagePath": "vl-thesis-avlat/assets/charts/D4_violin.png",
-        "splitValue": 56
+        "splitValue": 56,
+        "correctAnswer": true,
+        "debugShowScore": false
       },
       "response": []
     },
@@ -681,7 +857,9 @@
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
       "parameters": {
-        "imagePath": "vl-thesis-avlat/assets/charts/panelA_boxplot.png"
+        "imagePath": "vl-thesis-avlat/assets/charts/panelA_boxplot.png",
+        "correctAnswer": "B",
+        "debugShowScore": false
       },
       "response": []
     },
@@ -689,7 +867,9 @@
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
       "parameters": {
-        "imagePath": "vl-thesis-avlat/assets/charts/panelB_violin.png"
+        "imagePath": "vl-thesis-avlat/assets/charts/panelB_violin.png",
+        "correctAnswer": "C",
+        "debugShowScore": false
       },
       "response": []
     },
@@ -697,7 +877,9 @@
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
       "parameters": {
-        "imagePath": "vl-thesis-avlat/assets/charts/panelB_boxplot.png"
+        "imagePath": "vl-thesis-avlat/assets/charts/panelB_boxplot.png",
+        "correctAnswer": "C",
+        "debugShowScore": false
       },
       "response": []
     },
@@ -705,7 +887,9 @@
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
       "parameters": {
-        "imagePath": "vl-thesis-avlat/assets/charts/panelA_violin.png"
+        "imagePath": "vl-thesis-avlat/assets/charts/panelA_violin.png",
+        "correctAnswer": "B",
+        "debugShowScore": false
       },
       "response": []
     },
@@ -713,7 +897,9 @@
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
       "parameters": {
-        "imagePath": "vl-thesis-avlat/assets/charts/panelA_histogram.png"
+        "imagePath": "vl-thesis-avlat/assets/charts/panelA_histogram.png",
+        "correctAnswer": "A",
+        "debugShowScore": false
       },
       "response": []
     },
@@ -721,7 +907,9 @@
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
       "parameters": {
-        "imagePath": "vl-thesis-avlat/assets/charts/panelB_histogram.png"
+        "imagePath": "vl-thesis-avlat/assets/charts/panelB_histogram.png",
+        "correctAnswer": "A",
+        "debugShowScore": false
       },
       "response": []
     },
@@ -729,7 +917,9 @@
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
       "parameters": {
-        "imagePath": "vl-thesis-avlat/assets/charts/panelA_stripplot.png"
+        "imagePath": "vl-thesis-avlat/assets/charts/panelA_stripplot.png",
+        "correctAnswer": "A",
+        "debugShowScore": false
       },
       "response": []
     },
@@ -737,7 +927,9 @@
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/MedianComparison.tsx",
       "parameters": {
-        "imagePath": "vl-thesis-avlat/assets/charts/panelB_stripplot.png"
+        "imagePath": "vl-thesis-avlat/assets/charts/panelB_stripplot.png",
+        "correctAnswer": "A",
+        "debugShowScore": false
       },
       "response": []
     },
@@ -766,14 +958,16 @@
     "attentionCheckTask4": {
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/AttentionCheckTask4.tsx",
-      "parameters": {},
+      "parameters": {
+        "imagePath": "vl-thesis-avlat/assets/charts/attentioncheck_task4.png"
+      },
       "response": []
     },
     "selfAssessmentBoxplot": {
       "type": "react-component",
       "path": "vl-thesis-avlat/assets/SelfAssessmentItem.tsx",
       "parameters": {
-        "imagePath": "vl-thesis-avlat/assets/charts/attentioncheck_task4.png",
+        "imagePath": "vl-thesis-avlat/assets/charts/example_boxplot.png",
         "promptText": "How good are you at working with boxplots?",
         "leftLabel": "Not at all good",
         "rightLabel": "Extremely good",
@@ -892,6 +1086,11 @@
       "type": "questionnaire",
       "response": [
         {
+          "id": "reflectionIntroText",
+          "type": "textOnly",
+          "prompt": "You've now completed three parts of the study:\n\n* the Self-Assessment (where you rated your own confidence with different chart types)\n* the Visualization Literacy Test (the standardized chart-reading questions you had in the beginning)\n* the Performance Check (the last part, with click-based tasks on the one-dimensional distribution charts)\n\nTake a moment and reflect on how each part felt by answering the questions below:"
+        },
+        {
           "id": "reflectionRatingDistributionTasks",
           "prompt": "Rate from 1 to 10 how well you feel you did on the last part of the study you just finished (tasks with one-dimentional distribution charts).",
           "location": "belowStimulus",
@@ -940,6 +1139,67 @@
       "type": "markdown",
       "path": "vl-thesis-avlat/assets/definitions-intro.md",
       "response": []
+    },
+    "resultsScreen": {
+      "type": "react-component",
+      "path": "vl-thesis-avlat/assets/ResultsScreen.tsx",
+      "parameters": {},
+      "response": []
+    },
+    "sgl5Original": {
+      "type": "questionnaire",
+      "response": [
+        {
+          "id": "sgl5BarCharts",
+          "prompt": "How good are you at working with bar charts?",
+          "location": "belowStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Not at all good",
+          "rightLabel": "Extremely good"
+        },
+        {
+          "id": "sgl5LinePlots",
+          "prompt": "How good are you at working with line plots?",
+          "location": "belowStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Not at all good",
+          "rightLabel": "Extremely good"
+        },
+        {
+          "id": "sgl5Pies",
+          "prompt": "How good are you at working with pies?",
+          "location": "belowStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Not at all good",
+          "rightLabel": "Extremely good"
+        },
+        {
+          "id": "sgl5InferSize",
+          "prompt": "How good are you at inferring the size of a bar in a bar chart?",
+          "location": "belowStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Not at all good",
+          "rightLabel": "Extremely good"
+        },
+        {
+          "id": "sgl5DetermineDifference",
+          "prompt": "How good are you at determining the difference between 2 bars in a bar chart?",
+          "location": "belowStimulus",
+          "type": "likert",
+          "numItems": 6,
+          "start": 1,
+          "leftLabel": "Not at all good",
+          "rightLabel": "Extremely good"
+        }
+      ]
     }
   },
   "sequence": {
@@ -947,6 +1207,7 @@
     "components": [
       "introduction",
       "selfAssessmentIntro",
+      "sgl5Original",
       "selfAssessmentBoxplot",
       "selfAssessmentViolin",
       "selfAssessmentHistogram",
@@ -1136,6 +1397,7 @@
         ]
       },
       "qualitativeReflection",
+      "resultsScreen",
       "demographicsIntro",
       "demographics"
     ]
