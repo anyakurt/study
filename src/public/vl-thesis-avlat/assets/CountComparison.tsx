@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { Box, Button, Group, Stack, Text } from '@mantine/core';
 import { StimulusParams } from '../../../store/types';
 import { countFailures } from './attentionCheckState';
+import { performanceScoreState } from './performanceScoreState';
 
 interface CountComparisonParams {
   imagePath: string;
   splitValue: number;
+  correctAnswer: boolean;
+  debugShowScore?: boolean;
 }
 
 // Same display width convention as ClickToSelect.tsx / ClickToSelectRange.tsx.
@@ -29,6 +32,10 @@ export default function CountComparison({ parameters, setAnswer }: StimulusParam
 
   const handleSelect = (choice: 'True' | 'False') => {
     setSelected(choice);
+
+    const correct = (choice === 'True') === parameters.correctAnswer;
+    performanceScoreState.task3[parameters.imagePath] = correct ? 1 : 0;
+
     setAnswer({
       status: true,
       answers: {
@@ -74,6 +81,12 @@ export default function CountComparison({ parameters, setAnswer }: StimulusParam
             False
           </Button>
         </Group>
+
+        {parameters.debugShowScore && (
+          <Text size="sm" fw={700} c="grape">
+            [DEBUG] Points: {performanceScoreState.task3[parameters.imagePath] ?? 0} / 1
+          </Text>
+        )}
       </Stack>
     </Group>
   );

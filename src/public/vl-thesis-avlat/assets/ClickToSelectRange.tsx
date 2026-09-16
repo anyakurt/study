@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Box, Button, Group, Stack, Text } from '@mantine/core';
 import { StimulusParams } from '../../../../src/store/types';
 import { countFailures } from './attentionCheckState';
+import { performanceScoreState } from './performanceScoreState';
 
 interface RangeClickRecord {
   pixelX: number;
@@ -18,12 +19,31 @@ interface ClickToSelectRangeParams {
   plotAreaRightPx: number;
   domainMin: number;
   domainMax: number;
+  correctMinLow: number;
+  correctMinHigh: number;
+  correctMaxLow: number;
+  correctMaxHigh: number;
+  debugShowScore?: boolean;
 }
 
 function pixelToDataValue(pixelX: number, params: ClickToSelectRangeParams): number {
   const { plotAreaLeftPx, plotAreaRightPx, domainMin, domainMax } = params;
   const fraction = (pixelX - plotAreaLeftPx) / (plotAreaRightPx - plotAreaLeftPx);
   return domainMin + fraction * (domainMax - domainMin);
+}
+
+// Silent scoring: up to 2 points (1 for min, 1 for max), each awarded only
+// if that click's data value falls within its own acceptable range. Never
+// shown to the participant -- only read back on the final results screen.
+function scoreRangeAnswer(params: ClickToSelectRangeParams, min: RangeClickRecord | null, max: RangeClickRecord | null): number {
+  let points = 0;
+  if (min !== null && min.dataValue >= params.correctMinLow && min.dataValue <= params.correctMinHigh) {
+    points += 1;
+  }
+  if (max !== null && max.dataValue >= params.correctMaxLow && max.dataValue <= params.correctMaxHigh) {
+    points += 1;
+  }
+  return points;
 }
 
 // Same display width convention as ClickToSelect.tsx (Task 1). The click-
@@ -59,6 +79,12 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
       : 'Both values recorded.';
 
   const reportAnswer = (nextMin: RangeClickRecord | null, nextMax: RangeClickRecord | null) => {
+    if (nextMin !== null && nextMax !== null) {
+      performanceScoreState.task2[parameters.imagePath] = scoreRangeAnswer(parameters, nextMin, nextMax);
+    } else {
+      performanceScoreState.task2[parameters.imagePath] = 0;
+    }
+
     setAnswer({
       status: nextMin !== null && nextMax !== null,
       answers: {
@@ -221,6 +247,12 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
                 Reset maximum
               </Button>
             </Stack>
+          )}
+
+          {parameters.debugShowScore && (
+            <Text size="sm" fw={700} c="grape">
+              [DEBUG] Points: {performanceScoreState.task2[parameters.imagePath] ?? 0} / 2
+            </Text>
           )}
         </Stack>
       </Stack>

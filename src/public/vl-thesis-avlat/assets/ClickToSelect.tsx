@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Box, Button, Checkbox, Group, Stack, Text } from '@mantine/core';
 import { StimulusParams } from '../../../../src/store/types';
 import { countFailures } from './attentionCheckState';
+import { performanceScoreState } from './performanceScoreState';
 
 interface ClickRecord {
   pixelX: number;
@@ -21,12 +22,31 @@ interface ClickToSelectParams {
   allowNoOutliers: boolean;
   maxClicks: number;
   clickLabel?: string;
+  correctValue: number | null;
+  toleranceLow: number;
+  toleranceHigh: number;
+  debugShowScore?: boolean;
 }
 
 function pixelToDataValue(pixelX: number, params: ClickToSelectParams): number {
   const { plotAreaLeftPx, plotAreaRightPx, domainMin, domainMax } = params;
   const fraction = (pixelX - plotAreaLeftPx) / (plotAreaRightPx - plotAreaLeftPx);
   return domainMin + fraction * (domainMax - domainMin);
+}
+
+// Silent scoring: 1 point if the click (or "no outliers") matches the
+// known correct answer, 0 otherwise. Never shown to the participant here --
+// only read back on the results screen at the very end of the study.
+function scoreOutlierAnswer(params: ClickToSelectParams, clickValue: number | null, noOutliersSelected: boolean): number {
+  if (params.correctValue === null) {
+    return noOutliersSelected ? 1 : 0;
+  }
+  if (clickValue === null) {
+    return 0;
+  }
+  const low = params.correctValue - params.toleranceLow;
+  const high = params.correctValue + params.toleranceHigh;
+  return clickValue >= low && clickValue <= high ? 1 : 0;
 }
 
 // Display width for the chart image. The click-coordinate math scales
@@ -67,6 +87,8 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
     setClicks(newClicks);
     setNoOutliersPressed(false);
 
+    performanceScoreState.task1[parameters.imagePath] = scoreOutlierAnswer(parameters, dataValue, false);
+
     setAnswer({
       status: newClicks.length >= parameters.maxClicks || parameters.allowNoOutliers === false,
       answers: {
@@ -83,6 +105,7 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
     setNoOutliersPressed(checked);
     if (checked) {
       setClicks([]);
+      performanceScoreState.task1[parameters.imagePath] = scoreOutlierAnswer(parameters, null, true);
       setAnswer({
         status: true,
         answers: {
@@ -91,6 +114,7 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
         },
       });
     } else {
+      performanceScoreState.task1[parameters.imagePath] = 0;
       setAnswer({
         status: false,
         answers: {
@@ -103,6 +127,7 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
 
   const handleReset = () => {
     setClicks([]);
+    performanceScoreState.task1[parameters.imagePath] = 0;
     setAnswer({
       status: false,
       answers: {
@@ -189,6 +214,12 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
             <Button variant= "light" size="xs" onClick={handleReset} style={{ alignSelf: 'flex-start' }}>
               Reset
             </Button>
+          )}
+
+          {parameters.debugShowScore && (
+            <Text size="sm" fw={700} c="grape">
+              [DEBUG] Points: {performanceScoreState.task1[parameters.imagePath] ?? 0} / 1
+            </Text>
           )}
         </Stack>
       </Stack>

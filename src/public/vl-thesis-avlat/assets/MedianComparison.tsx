@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 import { Box, Button, Group, Stack, Text } from '@mantine/core';
 import { StimulusParams } from '../../../../src/store/types';
 import { countFailures } from './attentionCheckState';
+import { performanceScoreState } from './performanceScoreState';
 
 interface MedianComparisonParams {
   imagePath: string;
+  correctAnswer: 'A' | 'B' | 'C';
+  debugShowScore?: boolean;
 }
 
 // Same display width convention as the other custom trial components.
@@ -28,6 +31,10 @@ export default function MedianComparison({ parameters, setAnswer }: StimulusPara
 
   const handleSelect = (choice: 'A' | 'B' | 'C') => {
     setSelected(choice);
+
+    const correct = choice === parameters.correctAnswer;
+    performanceScoreState.task4[parameters.imagePath] = correct ? 1 : 0;
+
     setAnswer({
       status: true,
       answers: {
@@ -68,6 +75,12 @@ export default function MedianComparison({ parameters, setAnswer }: StimulusPara
             </Button>
           ))}
         </Stack>
+
+        {parameters.debugShowScore && (
+          <Text size="sm" fw={700} c="grape">
+            [DEBUG] Points: {performanceScoreState.task4[parameters.imagePath] ?? 0} / 1
+          </Text>
+        )}
       </Stack>
     </Group>
   );
