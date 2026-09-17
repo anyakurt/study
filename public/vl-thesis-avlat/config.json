@@ -1113,7 +1113,7 @@
         },
         {
           "id": "reflectionRatingAVLAT",
-          "prompt": "Rate from 1 to 10 how well you feel you did on the A-VLAT test (the first test with the tasks).",
+          "prompt": "Rate from 1 to 10 how well you feel you did on the Visualisation Literacy Test (the first test with the tasks).",
           "location": "belowStimulus",
           "type": "likert",
           "numItems": 10,
