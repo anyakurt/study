@@ -15,7 +15,7 @@ interface CountComparisonParams {
 const DISPLAY_WIDTH = 650;
 
 export default function CountComparison({ parameters, setAnswer }: StimulusParams<CountComparisonParams>) {
-  const [selected, setSelected] = useState<'True' | 'False' | null>(null);
+  const [selected, setSelected] = useState<'True' | 'False' | 'IDK' | null>(null);
 
   // Frozen at mount: if a prior attention check already failed twice by the
   // time this trial loads, this screen shows the exclusion message instead
@@ -30,10 +30,13 @@ export default function CountComparison({ parameters, setAnswer }: StimulusParam
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleSelect = (choice: 'True' | 'False') => {
+  const handleSelect = (choice: 'True' | 'False' | 'IDK') => {
     setSelected(choice);
 
-    const correct = (choice === 'True') === parameters.correctAnswer;
+    // "I don't know" always scores 0, same as any other non-answer, but is
+    // stored as its own distinct value so analysis can tell an honest
+    // non-answer apart from a genuine wrong guess.
+    const correct = choice !== 'IDK' && (choice === 'True') === parameters.correctAnswer;
     performanceScoreState.task3[parameters.imagePath] = correct ? 1 : 0;
 
     setAnswer({
@@ -79,6 +82,12 @@ export default function CountComparison({ parameters, setAnswer }: StimulusParam
             onClick={() => handleSelect('False')}
           >
             False
+          </Button>
+          <Button
+            variant={selected === 'IDK' ? 'filled' : 'outline'}
+            onClick={() => handleSelect('IDK')}
+          >
+            I don&apos;t know
           </Button>
         </Group>
 

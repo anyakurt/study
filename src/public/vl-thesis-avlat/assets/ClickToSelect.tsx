@@ -35,8 +35,10 @@ function pixelToDataValue(pixelX: number, params: ClickToSelectParams): number {
 }
 
 // Silent scoring: 1 point if the click (or "no outliers") matches the
-// known correct answer, 0 otherwise. Never shown to the participant here --
-// only read back on the results screen at the very end of the study.
+// known correct answer, 0 otherwise. "I don't know" always scores 0, same
+// as any other incorrect/incomplete answer, but is stored as its own
+// distinct flag so analysis can tell an honest non-answer apart from a
+// genuine wrong guess.
 function scoreOutlierAnswer(params: ClickToSelectParams, clickValue: number | null, noOutliersSelected: boolean): number {
   if (params.correctValue === null) {
     return noOutliersSelected ? 1 : 0;
@@ -57,6 +59,7 @@ const DISPLAY_WIDTH = 650;
 export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<ClickToSelectParams>) {
   const [clicks, setClicks] = useState<ClickRecord[]>([]);
   const [noOutliersPressed, setNoOutliersPressed] = useState(false);
+  const [idkPressed, setIdkPressed] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   // Frozen at mount: if a prior attention check already failed twice by the
@@ -67,7 +70,7 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
   useEffect(() => {
     setAnswer({
       status: false,
-      answers: { clicks: [], noOutliersPressed: false, excludedOnLoad },
+      answers: { clicks: [], noOutliersPressed: false, idkPressed: false, excludedOnLoad },
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -86,6 +89,7 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
     const newClicks = [{ pixelX, pixelY, dataValue }];
     setClicks(newClicks);
     setNoOutliersPressed(false);
+    setIdkPressed(false);
 
     performanceScoreState.task1[parameters.imagePath] = scoreOutlierAnswer(parameters, dataValue, false);
 
@@ -94,23 +98,25 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
       answers: {
         clicks: newClicks,
         noOutliersPressed: false,
+        idkPressed: false,
       },
     });
   };
 
-  // Checking the box and clicking the chart are mutually exclusive answers,
-  // so toggling the box on clears any click, and toggling it off clears the
-  // "no outliers" selection and re-enables clicking.
+  // Clicking the chart, checking "no outliers", and checking "I don't know"
+  // are all mutually exclusive answers -- selecting one clears the others.
   const handleNoOutliersToggle = (checked: boolean) => {
     setNoOutliersPressed(checked);
     if (checked) {
       setClicks([]);
+      setIdkPressed(false);
       performanceScoreState.task1[parameters.imagePath] = scoreOutlierAnswer(parameters, null, true);
       setAnswer({
         status: true,
         answers: {
           clicks: [],
           noOutliersPressed: true,
+          idkPressed: false,
         },
       });
     } else {
@@ -120,6 +126,34 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
         answers: {
           clicks: [],
           noOutliersPressed: false,
+          idkPressed: false,
+        },
+      });
+    }
+  };
+
+  const handleIdkToggle = (checked: boolean) => {
+    setIdkPressed(checked);
+    if (checked) {
+      setClicks([]);
+      setNoOutliersPressed(false);
+      performanceScoreState.task1[parameters.imagePath] = 0;
+      setAnswer({
+        status: true,
+        answers: {
+          clicks: [],
+          noOutliersPressed: false,
+          idkPressed: true,
+        },
+      });
+    } else {
+      performanceScoreState.task1[parameters.imagePath] = 0;
+      setAnswer({
+        status: false,
+        answers: {
+          clicks: [],
+          noOutliersPressed: false,
+          idkPressed: false,
         },
       });
     }
@@ -133,6 +167,7 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
       answers: {
         clicks: [],
         noOutliersPressed: false,
+        idkPressed: false,
       },
     });
   };
@@ -200,14 +235,25 @@ export default function ClickToSelect({ parameters, setAnswer }: StimulusParams<
             />
           )}
 
+          <Text size="sm">If you don&apos;t know please press the button:</Text>
+          <Checkbox
+            label="I don't know"
+            checked={idkPressed}
+            onChange={(event) => handleIdkToggle(event.currentTarget.checked)}
+            disabled={clicks.length > 0}
+            style={{ alignSelf: 'flex-start' }}
+          />
+
           <Text size="sm" c="dimmed" style={{ paddingTop: 40 }}>
-            {noOutliersPressed
-              ? 'You selected "No Outliers"'
-              : clicks.length > 0 ? (
-                  <Text size="sm" c="dimmed">
-                    {clicks.length} of {parameters.maxClicks} click{parameters.maxClicks > 1 ? 's' : ''} recorded.
-                  </Text>
-                ) : null}
+            {idkPressed
+              ? 'You selected "I don\'t know"'
+              : noOutliersPressed
+                ? 'You selected "No Outliers"'
+                : clicks.length > 0 ? (
+                    <Text size="sm" c="dimmed">
+                      {clicks.length} of {parameters.maxClicks} click{parameters.maxClicks > 1 ? 's' : ''} recorded.
+                    </Text>
+                  ) : null}
           </Text>
 
           {clicks.length > 0 && (

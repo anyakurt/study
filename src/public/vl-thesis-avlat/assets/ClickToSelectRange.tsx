@@ -11,6 +11,10 @@ interface RangeClickRecord {
   [key: string]: number;
 }
 
+// Each slot (min/max) is either a real click, the string 'idk' (an honest
+// "I don't know" for that specific value), or null (not yet answered).
+type SlotState = RangeClickRecord | 'idk' | null;
+
 interface ClickToSelectRangeParams {
   imagePath: string;
   imageWidth: number;
@@ -32,15 +36,17 @@ function pixelToDataValue(pixelX: number, params: ClickToSelectRangeParams): num
   return domainMin + fraction * (domainMax - domainMin);
 }
 
-// Silent scoring: up to 2 points (1 for min, 1 for max), each awarded only
-// if that click's data value falls within its own acceptable range. Never
-// shown to the participant -- only read back on the final results screen.
-function scoreRangeAnswer(params: ClickToSelectRangeParams, min: RangeClickRecord | null, max: RangeClickRecord | null): number {
+// Silent scoring: up to 2 points (1 for min, 1 for max). A slot only scores
+// if it's a real click within its acceptable range -- 'idk' and null both
+// score 0, same as an incorrect click, but 'idk' is stored as its own
+// distinct value so analysis can tell an honest non-answer apart from a
+// genuine wrong guess.
+function scoreRangeAnswer(params: ClickToSelectRangeParams, min: SlotState, max: SlotState): number {
   let points = 0;
-  if (min !== null && min.dataValue >= params.correctMinLow && min.dataValue <= params.correctMinHigh) {
+  if (min !== null && min !== 'idk' && min.dataValue >= params.correctMinLow && min.dataValue <= params.correctMinHigh) {
     points += 1;
   }
-  if (max !== null && max.dataValue >= params.correctMaxLow && max.dataValue <= params.correctMaxHigh) {
+  if (max !== null && max !== 'idk' && max.dataValue >= params.correctMaxLow && max.dataValue <= params.correctMaxHigh) {
     points += 1;
   }
   return points;
@@ -52,10 +58,8 @@ function scoreRangeAnswer(params: ClickToSelectRangeParams, min: RangeClickRecor
 const DISPLAY_WIDTH = 650;
 
 export default function ClickToSelectRange({ parameters, setAnswer }: StimulusParams<ClickToSelectRangeParams>) {
-  // Minimum and maximum are stored as two independent slots, not one array,
-  // so resetting one never disturbs the other.
-  const [minClick, setMinClick] = useState<RangeClickRecord | null>(null);
-  const [maxClick, setMaxClick] = useState<RangeClickRecord | null>(null);
+  const [minSlot, setMinSlot] = useState<SlotState>(null);
+  const [maxSlot, setMaxSlot] = useState<SlotState>(null);
   const imgRef = useRef<HTMLImageElement>(null);
 
   // Frozen at mount: if a prior attention check already failed twice by the
@@ -71,25 +75,28 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const isComplete = minClick !== null && maxClick !== null;
-  const currentPrompt = minClick === null
+  const isComplete = minSlot !== null && maxSlot !== null;
+  const currentPrompt = minSlot === null
     ? 'Click on the MINIMUM value in the dataset.'
-    : maxClick === null
+    : maxSlot === null
       ? 'Click on the MAXIMUM value in the dataset.'
       : 'Both values recorded.';
 
-  const reportAnswer = (nextMin: RangeClickRecord | null, nextMax: RangeClickRecord | null) => {
-    if (nextMin !== null && nextMax !== null) {
-      performanceScoreState.task2[parameters.imagePath] = scoreRangeAnswer(parameters, nextMin, nextMax);
-    } else {
-      performanceScoreState.task2[parameters.imagePath] = 0;
-    }
+  const toStoredValue = (slot: SlotState) => (slot === null || slot === 'idk' ? null : slot);
+  const isIdk = (slot: SlotState) => slot === 'idk';
+
+  const reportAnswer = (nextMin: SlotState, nextMax: SlotState) => {
+    performanceScoreState.task2[parameters.imagePath] = (nextMin !== null && nextMax !== null)
+      ? scoreRangeAnswer(parameters, nextMin, nextMax)
+      : 0;
 
     setAnswer({
       status: nextMin !== null && nextMax !== null,
       answers: {
-        minimumClick: nextMin,
-        maximumClick: nextMax,
+        minimumClick: toStoredValue(nextMin),
+        maximumClick: toStoredValue(nextMax),
+        minimumIdk: isIdk(nextMin),
+        maximumIdk: isIdk(nextMax),
       },
     });
   };
@@ -107,23 +114,38 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
     const dataValue = pixelToDataValue(pixelX, parameters);
     const record = { pixelX, pixelY, dataValue };
 
-    if (minClick === null) {
-      setMinClick(record);
-      reportAnswer(record, maxClick);
+    if (minSlot === null) {
+      setMinSlot(record);
+      reportAnswer(record, maxSlot);
     } else {
-      setMaxClick(record);
-      reportAnswer(minClick, record);
+      setMaxSlot(record);
+      reportAnswer(minSlot, record);
+    }
+  };
+
+  // Marks whichever slot is currently being asked for (min first, then
+  // max) as an honest "I don't know", same as a click would fill it.
+  const handleIdk = () => {
+    if (isComplete) {
+      return;
+    }
+    if (minSlot === null) {
+      setMinSlot('idk');
+      reportAnswer('idk', maxSlot);
+    } else {
+      setMaxSlot('idk');
+      reportAnswer(minSlot, 'idk');
     }
   };
 
   const handleResetMin = () => {
-    setMinClick(null);
-    reportAnswer(null, maxClick);
+    setMinSlot(null);
+    reportAnswer(null, maxSlot);
   };
 
   const handleResetMax = () => {
-    setMaxClick(null);
-    reportAnswer(minClick, null);
+    setMaxSlot(null);
+    reportAnswer(minSlot, null);
   };
 
   if (excludedOnLoad) {
@@ -148,13 +170,13 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
             display: 'block',
           }}
         />
-        {minClick && (
+        {minSlot !== null && minSlot !== 'idk' && (
           <>
             <Box
               style={{
                 position: 'absolute',
-                left: (minClick.pixelX / parameters.imageWidth) * 100 + '%',
-                top: (minClick.pixelY / parameters.imageHeight) * 100 + '%',
+                left: (minSlot.pixelX / parameters.imageWidth) * 100 + '%',
+                top: (minSlot.pixelY / parameters.imageHeight) * 100 + '%',
                 width: 10,
                 height: 10,
                 marginLeft: -5,
@@ -169,8 +191,8 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
               fw={700}
               style={{
                 position: 'absolute',
-                left: (minClick.pixelX / parameters.imageWidth) * 100 + '%',
-                top: (minClick.pixelY / parameters.imageHeight) * 100 + '%',
+                left: (minSlot.pixelX / parameters.imageWidth) * 100 + '%',
+                top: (minSlot.pixelY / parameters.imageHeight) * 100 + '%',
                 transform: 'translate(-50%, calc(-100% - 12px))',
                 color: 'blue',
                 pointerEvents: 'none',
@@ -181,13 +203,13 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
             </Text>
           </>
         )}
-        {maxClick && (
+        {maxSlot !== null && maxSlot !== 'idk' && (
           <>
             <Box
               style={{
                 position: 'absolute',
-                left: (maxClick.pixelX / parameters.imageWidth) * 100 + '%',
-                top: (maxClick.pixelY / parameters.imageHeight) * 100 + '%',
+                left: (maxSlot.pixelX / parameters.imageWidth) * 100 + '%',
+                top: (maxSlot.pixelY / parameters.imageHeight) * 100 + '%',
                 width: 10,
                 height: 10,
                 marginLeft: -5,
@@ -202,8 +224,8 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
               fw={700}
               style={{
                 position: 'absolute',
-                left: (maxClick.pixelX / parameters.imageWidth) * 100 + '%',
-                top: (maxClick.pixelY / parameters.imageHeight) * 100 + '%',
+                left: (maxSlot.pixelX / parameters.imageWidth) * 100 + '%',
+                top: (maxSlot.pixelY / parameters.imageHeight) * 100 + '%',
                 transform: 'translate(-50%, calc(-100% - 12px))',
                 color: 'red',
                 pointerEvents: 'none',
@@ -218,21 +240,37 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
 
       <Stack gap="lg" style={{ minWidth: 260, paddingTop: 200 }}>
         <Text fw={600}>
-          {minClick === null && (
+          {minSlot === null && (
             <>
               Click on the <Text component="span" c="blue" fw={700}>MINIMUM</Text> value in the dataset.
             </>
           )}
-          {minClick !== null && maxClick === null && (
+          {minSlot !== null && maxSlot === null && (
             <>
               Click on the <Text component="span" c="red" fw={700}>MAXIMUM</Text> value in the dataset.
             </>
           )}
-          {minClick !== null && maxClick !== null && 'Both values recorded.'}
+          {minSlot !== null && maxSlot !== null && 'Both values recorded.'}
         </Text>
 
+        {!isComplete && (
+          <Stack gap="xs">
+            <Text size="sm">If you don&apos;t know please press the button:</Text>
+            <Button variant="outline" size="xs" onClick={handleIdk} style={{ alignSelf: 'flex-start' }}>
+              I don&apos;t know
+            </Button>
+          </Stack>
+        )}
+
+        {minSlot === 'idk' && (
+          <Text size="sm" c="dimmed">Minimum: you selected &quot;I don&apos;t know&quot;</Text>
+        )}
+        {maxSlot === 'idk' && (
+          <Text size="sm" c="dimmed">Maximum: you selected &quot;I don&apos;t know&quot;</Text>
+        )}
+
         <Stack gap="md">
-          {minClick && (
+          {minSlot !== null && (
             <Stack gap="xs">
               <Text size="sm">If you want to reselect MIN click:</Text>
               <Button variant="outline" size="xs" onClick={handleResetMin} style={{ alignSelf: 'flex-start' }}>
@@ -240,7 +278,7 @@ export default function ClickToSelectRange({ parameters, setAnswer }: StimulusPa
               </Button>
             </Stack>
           )}
-          {maxClick && (
+          {maxSlot !== null && (
             <Stack gap="xs">
               <Text size="sm">If you want to reselect MAX click:</Text>
               <Button variant="outline" size="xs" onClick={handleResetMax} style={{ alignSelf: 'flex-start' }}>

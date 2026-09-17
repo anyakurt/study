@@ -14,7 +14,7 @@ interface MedianComparisonParams {
 const DISPLAY_WIDTH = 450;
 
 export default function MedianComparison({ parameters, setAnswer }: StimulusParams<MedianComparisonParams>) {
-  const [selected, setSelected] = useState<'A' | 'B' | 'C' | null>(null);
+  const [selected, setSelected] = useState<'A' | 'B' | 'C' | 'IDK' | null>(null);
 
   // Frozen at mount: if a prior attention check already failed twice by the
   // time this trial loads, this screen shows the exclusion message instead
@@ -29,10 +29,10 @@ export default function MedianComparison({ parameters, setAnswer }: StimulusPara
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleSelect = (choice: 'A' | 'B' | 'C') => {
+  const handleSelect = (choice: 'A' | 'B' | 'C' | 'IDK') => {
     setSelected(choice);
 
-    const correct = choice === parameters.correctAnswer;
+    const correct = choice !== 'IDK' && choice === parameters.correctAnswer;
     performanceScoreState.task4[parameters.imagePath] = correct ? 1 : 0;
 
     setAnswer({
@@ -65,13 +65,13 @@ export default function MedianComparison({ parameters, setAnswer }: StimulusPara
         <Text fw={600}>Which group has the higher median?</Text>
 
         <Stack gap="sm">
-          {(['A', 'B', 'C'] as const).map((option) => (
+          {(['A', 'B', 'C', 'IDK'] as const).map((option) => (
             <Button
               key={option}
               variant={selected === option ? 'filled' : 'outline'}
               onClick={() => handleSelect(option)}
             >
-              {option}
+              {option === 'IDK' ? "I don't know" : option}
             </Button>
           ))}
         </Stack>
